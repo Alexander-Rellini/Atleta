@@ -5,7 +5,7 @@ public class Gara {
     static void main(String[] args) {
         int MIN_PART = 2;
         int MAX_PART = 4;
-        int MIN_LUNGH = 10;
+        int LUNGHEZZA = 10;
         Scanner sc = new Scanner(System.in);
         int nPartecipanti;
         int lunghezzaPercorso;
@@ -24,11 +24,11 @@ public class Gara {
 
         // Scegli lunghezza percorso
         do {
-            System.out.printf("Lunghezza del percorso (min %d metri): ", MIN_LUNGH);
+            System.out.printf("Lunghezza del percorso (min %d metri): ", LUNGHEZZA);
             lunghezzaPercorso = sc.nextInt();
-            if(lunghezzaPercorso < MIN_LUNGH)
-                System.out.printf("La lunghezza del percorso deve essere di almeno %d metri", MIN_LUNGH);
-        } while(lunghezzaPercorso < MIN_LUNGH);
+            if(lunghezzaPercorso < LUNGHEZZA)
+                System.out.printf("La lunghezza del percorso deve essere di almeno %d metri", LUNGHEZZA);
+        } while(lunghezzaPercorso < LUNGHEZZA);
         Atleta.lunghezzaPercorso = lunghezzaPercorso;
 
         Giudice giudice = new Giudice(nPartecipanti);
