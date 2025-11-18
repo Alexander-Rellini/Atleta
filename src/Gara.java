@@ -3,16 +3,16 @@ import java.util.*;
 public class Gara {
 
     static void main(String[] args) {
+        int MIN_LUNGH = 15;
         int MIN_PART = 2;
         int MAX_PART = 4;
-        int MIN_LUNGH = 10;
         Scanner sc = new Scanner(System.in);
         int nPartecipanti;
         int lunghezzaGara;
 
         System.out.println("Benvenuto alla gara atletica");
 
-        // Scegli numero partecipanti
+        //Inserimento del numro di partecipanti
         do {
             System.out.print("Numero partecipanti: ");
             nPartecipanti = sc.nextInt();
@@ -22,7 +22,7 @@ public class Gara {
         } while(nPartecipanti < MIN_PART || nPartecipanti > MAX_PART);
         sc.nextLine();
 
-        // Scegli la lunghezz della gara
+        //Inserimento della lunghezza dell gara, non inferiore a 15
         do {
             System.out.printf("Lunghezza della gara (min %d metri): ", MIN_LUNGH);
             lunghezzaGara = sc.nextInt();
@@ -44,8 +44,7 @@ public class Gara {
             listaAtleti.add(new Atleta(nome, numero, giudice));
         }
 
-        giudice.dichiaraInizio();
-
+        //assegna un thread per ogni atleta
         for (int i = 0; i < listaAtleti.size(); i++) {
             Thread t = new Thread(listaAtleti.get(i));
             t.start();
