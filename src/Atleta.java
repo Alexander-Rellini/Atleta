@@ -30,7 +30,7 @@ public class Atleta implements Runnable {
                 giudice.registraArrivo(this);
                 break;
             }
-            if (random.nextInt(100) < 10) {
+            if (random.nextInt(100) < 5) {
                 ritirato = true;
                 giudice.registraRitiro(this);
                 break;

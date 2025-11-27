@@ -4,19 +4,25 @@ import java.util.List;
 public class Giudice {
 
     private Atleta vincitore = null;
+    private int arrivati = 0;
     private final List<Atleta> classifica = new ArrayList<>();
     private final int atletiTotali;
+    private final GestoreFile gestore;
 
-    public Giudice(int numeroAtleti) {
+
+    public Giudice(int numeroAtleti, GestoreFile gestore) {
         this.atletiTotali = numeroAtleti;
+        this.gestore = gestore;
     }
+
 
     public void dichiaraInizio() {
         System.out.println("La gara è iniziata.");
     }
 
     public synchronized void registraArrivo(Atleta atleta) {
-        classifica.add(atleta);
+        classifica.add(arrivati,atleta);
+        arrivati++;
 
         if (vincitore == null) {
             vincitore = atleta;
@@ -45,12 +51,18 @@ public class Giudice {
 
         stampaClassifica();
         verificaPodio();
+        gestore.scriviClassifica(classifica, arrivati);
+
     }
 
     public void stampaClassifica() {
         System.out.println("\nClassifica finale:");
         for (int i = 0; i < classifica.size(); i++) {
-            System.out.println((i + 1) + "° " + classifica.get(i).getNome());
+            String riga = (i+1)+classifica.get(i).getNome();
+            if(i>=arrivati){
+                riga= riga+"(si è ritirato)";
+            }
+            System.out.println(riga);
         }
     }
 

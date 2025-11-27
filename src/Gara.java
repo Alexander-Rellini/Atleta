@@ -10,6 +10,10 @@ public class Gara {
         int nPartecipanti;
         int lunghezzaGara;
 
+        //file
+        GestoreFile gestore = new GestoreFile("classifica.txt");
+        gestore.leggiClassificaPrecedente();
+
         System.out.println("Benvenuto alla gara atletica");
 
         //Inserimento del numro di partecipanti
@@ -31,7 +35,7 @@ public class Gara {
         } while(lunghezzaGara < MIN_LUNGH);
         Atleta.LunghezzaGara = lunghezzaGara;
 
-        Giudice giudice = new Giudice(nPartecipanti);
+        Giudice giudice = new Giudice(nPartecipanti, gestore);
         List<Atleta> listaAtleti = new ArrayList<>();
 
         for (int i = 0; i < nPartecipanti; i++) {
