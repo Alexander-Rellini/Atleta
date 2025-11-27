@@ -30,11 +30,13 @@ public class Atleta implements Runnable {
                 giudice.registraArrivo(this);
                 break;
             }
+
             if (random.nextInt(100) < 5) {
                 ritirato = true;
                 giudice.registraRitiro(this);
                 break;
             }
+
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

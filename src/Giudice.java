@@ -9,7 +9,6 @@ public class Giudice {
     private final int atletiTotali;
     private final GestoreFile gestore;
 
-
     public Giudice(int numeroAtleti, GestoreFile gestore) {
         this.atletiTotali = numeroAtleti;
         this.gestore = gestore;

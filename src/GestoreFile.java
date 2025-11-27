@@ -32,7 +32,6 @@ public class GestoreFile {
 
         return classifica;
     }
-
     // scrive la classifica di fine gara
     public void scriviClassifica(List<Atleta> classifica, int arrivati) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(nomeFile))) {

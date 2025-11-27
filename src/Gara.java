@@ -13,7 +13,6 @@ public class Gara {
         //file
         GestoreFile gestore = new GestoreFile("classifica.txt");
         gestore.leggiClassificaPrecedente();
-
         System.out.println("Benvenuto alla gara atletica");
 
         //Inserimento del numro di partecipanti
